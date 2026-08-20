@@ -178,12 +178,13 @@
   .stickybar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);
     border-bottom:1px solid rgba(255,255,255,.12)}
   .sb-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 20px}
-  .sb-brand{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:14px;
+  .sb-brand{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700;font-size:14px;
     text-decoration:none;min-width:0}
-  .sb-brand img{width:26px;height:26px;border-radius:50%;object-fit:cover;flex:none}
+  .sb-logo{width:28px;height:28px;border-radius:50%;overflow:hidden;flex:none;display:block}
+  .sb-logo img{width:100%;height:100%;object-fit:cover;transform:scale(1.8)}
   .sb-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .sb-long{font-weight:500;color:rgba(255,255,255,.7)}
-  @media (max-width:700px){.sb-long{display:none}}
+  .sb-short{display:none}
+  @media (max-width:460px){.sb-full{display:none}.sb-short{display:inline}}
   .sb-cta{padding:8px 16px;font-size:13px;flex:none;width:auto}
 
   /* ---- полная презентация (встроена из deck/, слайды депersonализированы) ---- */
@@ -262,8 +263,8 @@
 <div class="stickybar">
   <div class="wrap sb-row">
     <a class="sb-brand" href="#">
-      <img src="images/logo.png" alt="Логотип АКРК">
-      <span><span class="sb-long">Ассоциация корё-сарам · </span>АКРК Юг</span>
+      <span class="sb-logo"><img src="images/logo.png" alt="Логотип АКРК"></span>
+      <span><span class="sb-full">Ассоциация корё-сарам</span><span class="sb-short">АКРК</span></span>
     </a>
     <a class="btn btn-p sb-cta" href="https://forms.gle/eXMsqgfdzoWPykTQ9" target="_blank" rel="noopener">Вступить в АКРК</a>
   </div>
