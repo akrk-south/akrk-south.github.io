@@ -435,16 +435,12 @@
         <div style="font-size:24px;font-weight:700;color:#2C3A95;">2018</div>
       </div>
       <div style="flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 8px;text-align:center;">
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">Членов АКРК</div>
-        <div style="font-size:28px;font-weight:700;color:#2C3A95;line-height:1;">503</div>
-        <div style="display:flex;gap:8px;justify-content:center;margin-top:6px;">
-          <div style="font-size:12px;color:var(--text-muted);">действит.: <strong style="color:var(--text);">410</strong></div>
-          <div style="font-size:12px;color:var(--text-muted);">простых: <strong style="color:var(--text);">93</strong></div>
-        </div>
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">Действительных членов</div>
+        <div style="font-size:28px;font-weight:700;color:#2C3A95;line-height:1;">~500</div>
       </div>
       <div style="flex:1;min-width:100px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 8px;text-align:center;">
         <div style="font-size:13px;color:var(--text-muted);">Представительств</div>
-        <div style="font-size:24px;font-weight:700;color:#2C3A95;">14</div>
+        <div style="font-size:24px;font-weight:700;color:#2C3A95;">15</div>
       </div>
     </div>
     <div style="margin:14px 0 10px;background:rgba(44,58,149,0.07);border-left:3px solid #2C3A95;border-radius:0 var(--radius) var(--radius) 0;padding:10px 14px;">
@@ -697,7 +693,7 @@
     <h2>Что даёт членство</h2>
     <table class="member-table">
       <tr><th></th><th>Действительный член</th><th>Обычный член</th></tr>
-      <tr><td style="font-weight:600;color:var(--text);">Взнос</td><td>10 000 ₩ / мес</td><td>По желанию, без ежемесячных</td></tr>
+      <tr><td style="font-weight:600;color:var(--text);">Взнос</td><td>10 000 ₩ / мес</td><td>Без ежемесячных взносов</td></tr>
       <tr><td style="font-weight:600;color:var(--text);">Право голоса</td><td>Да</td><td>Нет</td></tr>
       <tr><td style="font-weight:600;color:var(--text);">Право быть избранным</td><td>Да</td><td>Нет</td></tr>
       <tr><td style="font-weight:600;color:var(--text);">Доступ к программам</td><td>Полный</td><td>Да</td></tr>
@@ -1122,6 +1118,13 @@
       document.documentElement.style.setProperty('--barh', (h + 12) + 'px');
     }
     sync();
+    // sync() меняет высоту документа (padding-top у body) уже после того, как
+    // браузер отработал переход по #якорю из адресной строки — из-за этого при
+    // прямом заходе по ссылке страница попадала мимо цели. Довскролливаем.
+    if(location.hash){
+      var target = document.querySelector(location.hash);
+      if(target) target.scrollIntoView();
+    }
     window.addEventListener('resize', sync);
   })();
 </script>
