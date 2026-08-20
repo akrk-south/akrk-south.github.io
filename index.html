@@ -259,7 +259,10 @@
   }
 
   /* ---- якоря быстрого меню: не прятать заголовок под sticky-баром ---- */
-  #napravleniya,#chlenstvo,#strategy,#pres,#busan,#contacts{scroll-margin-top:var(--barh,60px)}
+  #top,#napravleniya,#events,#chlenstvo,#strategy,#pres,#pres-akrk,#pres-structure,#pres-reps,
+  #pres-why,#pres-directions,#pres-results,#pres-membership-table,#pres-cases,#pres-opportunities,
+  #pres-budget,#pres-strategy,#busan,#ansan,#kimhae,#tennis,#lectures,#global-gathering,#korean,
+  #together,#plans-h2,#donor,#contacts{scroll-margin-top:var(--barh,60px)}
 
   /* ---- плавающее меню разделов ---- */
   .fabmenu{position:fixed;right:18px;bottom:18px;z-index:250}
@@ -268,13 +271,17 @@
     cursor:pointer;color:#fff;padding:0}
   .fab-btn svg{width:22px;height:22px}
   .fab-panel{position:absolute;right:0;bottom:64px;background:var(--navy);border-radius:12px;
-    box-shadow:0 10px 28px rgba(0,0,0,.35);padding:8px;min-width:230px;
-    display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;
+    box-shadow:0 10px 28px rgba(0,0,0,.35);padding:8px;min-width:240px;max-width:78vw;
+    max-height:min(60vh,480px);overflow-y:auto;
+    display:flex;flex-direction:column;gap:1px;opacity:0;pointer-events:none;
     transform:translateY(8px);transition:opacity .18s ease,transform .18s ease}
   .fab-panel.open{opacity:1;pointer-events:auto;transform:translateY(0)}
   .fab-panel a{color:#fff;text-decoration:none;font-size:13.5px;font-weight:600;
-    padding:10px 12px;border-radius:8px}
+    padding:9px 12px;border-radius:8px;flex:none}
   .fab-panel a:hover{background:rgba(255,255,255,.12)}
+  .fab-group{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;font-weight:700;
+    color:rgba(255,255,255,.45);padding:10px 12px 4px;flex:none}
+  .fab-group:first-child{padding-top:4px}
 </style>
 </head>
 <body>
@@ -289,7 +296,7 @@
   </div>
 </div>
 
-<div class="hero">
+<div class="hero" id="top">
   <div class="wrap">
     <h1 class="slogan">В единстве — сила</h1>
     <div class="slogan-kr">함께하는 힘</div>
@@ -336,7 +343,7 @@
   </div>
 </section>
 
-<section class="wrap">
+<section class="wrap" id="events">
   <div class="cols">
     <div>
       <h2 class="o">АКРК · 2025</h2>
@@ -417,7 +424,7 @@
 </section>
 
 <div class="pres" id="pres">
-<div class="slide">
+<div class="slide" id="pres-akrk">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Что такое АКРК</h2>
@@ -481,7 +488,7 @@
   </div>
 </div>
 
-<div class="slide" style="padding:32px 48px;">
+<div class="slide" id="pres-structure" style="padding:32px 48px;">
   <div class="slide-content" style="max-width:900px;padding:0;background:transparent;">
     <div class="section-label fed" style="color:#2C3A95;">🟦 Республиканский уровень</div>
     <h2 style="color:#1a1a2e;margin-bottom:16px;">Структура АКРК</h2>
@@ -549,7 +556,7 @@
   </div>
 </div>
 
-<div class="slide" style="background:#f0f2f8;">
+<div class="slide" id="pres-reps" style="background:#f0f2f8;">
   <div class="slide-content" style="background:transparent;">
     <div class="section-label fed" style="color:#2C3A95;">🟦 Республиканский уровень</div>
     <h2 style="color:#1a1a2e;margin-bottom:12px;">Представительства АКРК</h2>
@@ -557,7 +564,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-why">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Зачем нужна организация</h2>
@@ -578,7 +585,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-directions">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень · 2025</div>
     <h2>Направления деятельности и активность</h2>
@@ -660,7 +667,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-results">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень · 2025</div>
     <h2>Итоги года</h2>
@@ -684,7 +691,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-membership-table">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Что даёт членство</h2>
@@ -707,7 +714,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-cases">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Что даёт членство на практике</h2>
@@ -756,7 +763,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-opportunities">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Членство: возможности и проекты</h2>
@@ -779,7 +786,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-budget">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Бюджет и членские взносы</h2>
@@ -797,7 +804,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="pres-strategy">
   <div class="slide-content">
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Стратегия АКРК на 2026</h2>
@@ -845,7 +852,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="ansan">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Региональный уровень · Февраль 2026</div>
     <h2>🏛 Ежегодное собрание АКРК в Ансане</h2>
@@ -868,7 +875,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="kimhae">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Событие · Март 2026</div>
     <h2>🚀 Молодёжное движение: встреча в Кимхэ</h2>
@@ -894,7 +901,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="tennis">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Событие · 28.02.2026</div>
     <h2>🏓 III Турнир по настольному теннису</h2>
@@ -925,7 +932,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="lectures">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Событие · 15–16.05.2026</div>
     <h2>📚 Лекции Вадима Акуленко</h2>
@@ -961,7 +968,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="global-gathering">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Событие · 23.05.2026</div>
     <h2>🌍 Global Gathering — фестиваль народов мира</h2>
@@ -991,7 +998,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="korean">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Региональный уровень · каждую среду</div>
     <h2>🗣 Корейский язык</h2>
@@ -1016,7 +1023,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="together">
   <div class="slide-content" style="text-align:center;">
     <div class="section-label reg">🟧 Региональный уровень · 2026</div>
     <h2>Вместе — интереснее</h2>
@@ -1028,7 +1035,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="plans-h2">
   <div class="slide-content">
     <div class="section-label reg">🟧 Региональный уровень</div>
     <h2>Планы на 2-е полугодие</h2>
@@ -1058,7 +1065,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="donor">
   <div class="slide-content wide">
     <div class="section-label" style="color:#c0392b;">🩸 Волонтёрство</div>
     <h2>100 лет жизни — <span style="color:#c0392b;">за 10 минут</span></h2>
@@ -1124,11 +1131,40 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
   </button>
   <nav class="fab-panel" id="fabPanel">
+    <div class="fab-group">Главное</div>
+    <a href="#top">Наверх</a>
     <a href="#napravleniya">Направления и цифры</a>
+    <a href="#events">События 2025–2026</a>
     <a href="#chlenstvo">Что даёт членство</a>
     <a href="#strategy">Стратегия 2026</a>
-    <a href="#pres">Полная презентация</a>
+
+    <div class="fab-group">Полная презентация</div>
+    <a href="#pres">Начало презентации</a>
+    <a href="#pres-akrk">Что такое АКРК</a>
+    <a href="#pres-structure">Структура АКРК</a>
+    <a href="#pres-reps">Представительства</a>
+    <a href="#pres-why">Зачем нужна организация</a>
+    <a href="#pres-directions">Направления — подробно</a>
+    <a href="#pres-results">Итоги года</a>
+    <a href="#pres-membership-table">Условия членства</a>
+    <a href="#pres-cases">Членство на практике</a>
+    <a href="#pres-opportunities">Возможности и проекты</a>
+    <a href="#pres-budget">Бюджет и взносы</a>
+    <a href="#pres-strategy">Стратегия — подробно</a>
+
+    <div class="fab-group">АКРК Юг</div>
     <a href="#busan">АКРК Пусан</a>
+    <a href="#ansan">Собрание в Ансане</a>
+    <a href="#kimhae">Встреча в Кимхэ</a>
+    <a href="#tennis">Турнир по теннису</a>
+    <a href="#lectures">Лекции Акуленко</a>
+    <a href="#global-gathering">Global Gathering</a>
+    <a href="#korean">Корейский язык</a>
+    <a href="#together">Вместе — интереснее</a>
+    <a href="#plans-h2">Планы на 2-е полугодие</a>
+    <a href="#donor">Донорство</a>
+
+    <div class="fab-group">Ещё</div>
     <a href="#contacts">Контакты и партнёры</a>
   </nav>
 </div>
