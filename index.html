@@ -74,18 +74,30 @@
     color:var(--muted);margin-top:6px;line-height:1.35;overflow-wrap:anywhere}
   .nc .x{font-size:9px;font-weight:600;color:var(--teal);margin-top:5px;line-height:1.3}
 
-  /* ---- flow ---- */
-  .flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-  .step{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:16px 16px 17px}
-  .step .sn{font-size:10px;font-weight:700;color:var(--orange);letter-spacing:1.4px}
-  .step .st{font-size:19px;font-weight:700;margin:6px 0 5px;letter-spacing:-.3px}
-  .step .ss{font-size:13px;color:var(--muted);line-height:1.45}
-  .proof{margin-top:16px;border-left:3px solid var(--orange);background:#FDF4EE;
-    padding:14px 18px;font-size:14px;border-radius:0 8px 8px 0;color:#4A3E34}
-  .proof b{color:var(--ink)}
+  /* ---- directions (6 направлений + карта присутствия) ---- */
+  .dirwrap{display:flex;gap:24px;align-items:center}
+  .dirs{flex:1;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+  .dir{display:flex;align-items:baseline;gap:8px;padding:2px 0}
+  .dir-n{font-size:22px;font-weight:700;color:var(--orange);letter-spacing:-1px;
+    min-width:26px;text-align:right;flex:none}
+  .dir-t{font-size:12.5px;line-height:1.3;color:#3A322B}
+  .mapwrap{flex:none;position:relative;display:flex;align-items:stretch;
+    width:330px;height:136px;border-left:1px solid var(--line);padding-left:14px}
+  .ml{display:flex;align-items:center;font-size:8px;font-weight:600;letter-spacing:.15px;
+    color:var(--muted);line-height:1.1}
+  .ml.l{flex:0 0 100px;text-align:right;justify-content:flex-end;margin-right:12px}
+  .ml.r{flex:0 0 100px;text-align:left;margin-left:12px}
+  .mimg{position:relative;flex:none;width:92px;height:130px;align-self:center}
+  .mimg img{width:100%;height:100%;object-fit:contain;display:block;opacity:.3}
+  .mlines{position:absolute;left:14px;top:3px;width:316px;height:130px}
+  .mlines line{stroke:var(--line);stroke-width:1}
+  .m-dot{position:absolute;width:4px;height:4px;border-radius:50%;
+    background:rgba(46,139,139,.6);transform:translate(-50%,-50%)}
+  .m-dot.m-hot{width:7px;height:7px;background:var(--teal);
+    box-shadow:0 0 0 2px #fff, 0 0 0 3.5px rgba(46,139,139,.28)}
 
-  /* ---- lists ---- */
-  .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px}
+  /* ---- three columns ---- */
+  .cols{display:grid;grid-template-columns:1fr 1fr .9fr;gap:26px;align-items:start}
   ul{list-style:none}
   li{padding:0 0 14px 18px;position:relative}
   li:last-child{padding-bottom:0}
@@ -94,8 +106,15 @@
   li.t::before{background:var(--teal)}
   li b{display:block;font-size:15px;font-weight:700;line-height:1.3}
   li span{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.4}
-  .photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:18px}
-  .photos img{width:100%;height:96px;object-fit:cover;border-radius:7px;display:block}
+  .soon{display:flex;flex-direction:column;gap:14px}
+  .soon-t{font-size:15px;font-weight:700;line-height:1.3}
+  .soon-s{font-size:13px;color:var(--muted);margin-top:2px}
+  .soon-note{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:4px;
+    border-top:1px dashed var(--line);padding-top:8px}
+
+  /* ---- photos ---- */
+  .photos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-top:20px}
+  .photos img{width:100%;height:76px;object-fit:cover;border-radius:7px;display:block}
 
   /* ---- benefits ---- */
   .bens{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
@@ -117,7 +136,7 @@
   .si .st{font-size:15px;font-weight:700;margin:6px 0 5px}
   .si .ss{font-size:12.5px;color:var(--muted);line-height:1.45}
 
-  /* ---- channels / footer ---- */
+  /* ---- footer ---- */
   .ftr{background:var(--navy);color:#fff;padding:40px 0 34px;position:relative;margin-top:10px}
   .ftr::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
     background:linear-gradient(90deg,var(--orange) 0 55%,var(--teal) 55% 100%)}
@@ -128,11 +147,12 @@
   .hics a{color:inherit;display:block}
   .hics svg{width:26px;height:26px}
   .hn{font-size:31px;font-weight:700;letter-spacing:-.8px}
-  .hs{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:26px}
-  .fl{font-size:14px;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.16);
-    padding-top:20px;margin-top:26px}
+  .hs{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px}
+  .partners{font-size:12px;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.16);
+    padding-top:16px;margin-top:22px;line-height:1.7}
+  .partners b{color:#fff;font-weight:700}
+  .fl{font-size:13px;color:rgba(255,255,255,.5);margin-top:10px}
   .fl a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
-  .fl p{margin-bottom:8px}
 
   @media(max-width:640px){
     section{padding:30px 0}
@@ -145,8 +165,12 @@
     .nc{border-bottom:1px solid var(--line)}
     .nc:nth-child(even){border-right:none}
     .nc.nc-s{border-bottom:none}
-    .flow{grid-template-columns:1fr}
-    .two{grid-template-columns:1fr;gap:28px}
+    .dirwrap{flex-direction:column;align-items:stretch;gap:16px}
+    .dirs{grid-template-columns:1fr}
+    .mapwrap{align-self:center}
+    .cols{grid-template-columns:1fr;gap:28px}
+    .photos{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .photos img{height:64px}
     .bens{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .strat{grid-template-columns:1fr}
     .si{border-right:none;border-bottom:1px solid var(--line);padding:16px 0}
@@ -195,44 +219,66 @@
 </div></div></div>
 
 <section class="wrap">
-  <h2 class="o">Как это работает</h2>
-  <div class="flow">
-    <div class="step"><div class="sn">01</div><div class="st">Собираем</div>
-      <div class="ss">голоса и проблемы сообщества</div></div>
-    <div class="step"><div class="sn">02</div><div class="st">Объясняем</div>
-      <div class="ss">их государству и обществу</div></div>
-    <div class="step"><div class="sn">03</div><div class="st">Соединяем</div>
-      <div class="ss">общину с институтами и ведомствами</div></div>
+  <h2 class="o">Направления деятельности<span style="margin-left:auto;font-size:12px;letter-spacing:.3px;text-transform:none;color:var(--ink);font-weight:700">337 мероприятий и проектов за 2025</span></h2>
+  <div class="dirwrap">
+    <div class="dirs">
+      <div class="dir"><div class="dir-n">64</div><div class="dir-t">Защита прав корё-сарам и имидж сообщества</div></div>
+      <div class="dir"><div class="dir-n">59</div><div class="dir-t">Консолидация и взаимодействие корё-сарам</div></div>
+      <div class="dir"><div class="dir-n">53</div><div class="dir-t">Поддержка в развитии личностного потенциала</div></div>
+      <div class="dir"><div class="dir-n">44</div><div class="dir-t">Сотрудничество с организациями Кореи</div></div>
+      <div class="dir"><div class="dir-n">41</div><div class="dir-t">Молодое поколение корё-сарам</div></div>
+      <div class="dir"><div class="dir-n">29</div><div class="dir-t">Консультирование: право, медицина, документы</div></div>
+    </div>
+    <div class="mapwrap">
+      <svg class="mlines" viewBox="0 0 316 130" preserveAspectRatio="none"><line x1="100" y1="8.1" x2="129.3" y2="25.4"/><line x1="100" y1="24.4" x2="132.8" y2="29.9"/><line x1="100" y1="40.6" x2="134.1" y2="33.8"/><line x1="100" y1="56.9" x2="144.8" y2="40.0"/><line x1="100" y1="73.1" x2="136.8" y2="41.6"/><line x1="100" y1="89.4" x2="127.5" y2="43.9"/><line x1="100" y1="105.6" x2="141.3" y2="46.1"/><line x1="100" y1="121.9" x2="130.4" y2="58.5"/><line x1="216" y1="9.3" x2="159.8" y2="15.6"/><line x1="216" y1="27.9" x2="136.8" y2="21.8"/><line x1="216" y1="46.4" x2="165.4" y2="41.6"/><line x1="216" y1="65.0" x2="152.5" y2="49.4"/><line x1="216" y1="83.6" x2="196.5" y2="77.3"/><line x1="216" y1="102.1" x2="179.2" y2="85.8"/><line x1="216" y1="120.7" x2="193.0" y2="99.5"/></svg>
+      <div class="ml l" style="height:16.25px">Инчхон</div><div class="ml l" style="height:16.25px">Ансан</div><div class="ml l" style="height:16.25px">Хвасон</div><div class="ml l" style="height:16.25px">Ансон</div><div class="ml l" style="height:16.25px">Пхёнтэк</div><div class="ml l" style="height:16.25px">Танджин</div><div class="ml l" style="height:16.25px">Чхонан</div><div class="ml l" style="height:16.25px">Хонсон-Нэпхо</div>
+      <div class="mimg"><img src="images/korea-silhouette.png" alt="Карта Кореи"><span class="m-dot" style="left:18.8%;top:19.5%"></span><span class="m-dot" style="left:22.6%;top:23.0%"></span><span class="m-dot" style="left:24.0%;top:26.0%"></span><span class="m-dot" style="left:35.7%;top:30.8%"></span><span class="m-dot" style="left:27.0%;top:32.0%"></span><span class="m-dot" style="left:16.8%;top:33.8%"></span><span class="m-dot" style="left:31.9%;top:35.5%"></span><span class="m-dot" style="left:20.0%;top:45.0%"></span><span class="m-dot" style="left:52.0%;top:12.0%"></span><span class="m-dot" style="left:27.0%;top:16.8%"></span><span class="m-dot" style="left:58.0%;top:32.0%"></span><span class="m-dot" style="left:44.0%;top:38.0%"></span><span class="m-dot" style="left:91.9%;top:59.5%"></span><span class="m-dot" style="left:73.0%;top:66.0%"></span><span class="m-dot m-hot" style="left:88.0%;top:76.5%"></span></div>
+      <div class="ml r" style="height:18.57px">Канвон</div><div class="ml r" style="height:18.57px">Сеул</div><div class="ml r" style="height:18.57px">Чечхон</div><div class="ml r" style="height:18.57px">Чхунбук</div><div class="ml r" style="height:18.57px">Кёнджу</div><div class="ml r" style="height:18.57px">Чиньён</div><div class="ml r" style="height:18.57px">Пусан</div>
+    </div>
   </div>
-  <div class="proof">В Корее государство говорит с организациями, а не с отдельными людьми.
-    <b>5 февраля 2026</b> АКРК передала обращения сообщества в Агентство по делам зарубежных
-    корейцев (재외동포청) — <b>22 мая</b> получены официальные ответы.</div>
 </section>
 
 <section class="wrap">
-  <div class="two">
+  <div class="cols">
     <div>
-      <h2 class="o">Что уже сделано</h2>
+      <h2 class="o">АКРК · 2025</h2>
       <ul>
-        <li><b>Государственная премия Кореи</b><span>в области прав человека, 2025</span></li>
-        <li><b>Памятник корё-сарам в Ансане</b><span>открыт при участии Ассоциации</span></li>
-        <li><b>Стипендия студентке из Пусана</b><span>получена по рекомендации АКРК</span></li>
-        <li><b>Молодёжное движение</b><span>10 клубов, 25 мероприятий за год</span></li>
+        <li><b>Государственная премия Кореи</b><span>2025 · в области прав человека</span></li>
+        <li><b>Памятник корё-сарам в Ансане</b><span>2025 · открыт при участии Ассоциации</span></li>
+        <li><b>Молодёжное движение</b><span>2025 · 10 клубов, 25 мероприятий</span></li>
+        <li><b>Фильм «Армия независимости»</b><span>2025 · спонсирование и перевод на русский</span></li>
       </ul>
     </div>
     <div>
-      <h2 class="t">АКРК Пусан · 2026</h2>
+      <h2 class="t">АКРК Юг · 2026</h2>
       <ul>
-        <li class="t"><b>Турнир по настольному теннису</b><span>28 участников из 10 городов</span></li>
-        <li class="t"><b>Лекции историка и музей Пусана</b><span>3 лекции, около 30 человек</span></li>
-        <li class="t"><b>Global Gathering</b><span>стенд АКРК на фестивале мэрии</span></li>
+        <li class="t"><b>Турнир по настольному теннису</b><span>28.02 · 28 участников из 10 городов</span></li>
+        <li class="t"><b>Исторические лекции и экскурсии</b><span>16.05 · Вадим Акуленко</span></li>
+        <li class="t"><b>Global Gathering</b><span>25.05 · стенд АКРК на фестивале мэрии</span></li>
+        <li class="t"><b>Донорская акция</b><span>26.07 · первая у АКРК Юг</span></li>
       </ul>
-      <div class="photos">
-        <img src="images/tournament-group.jpg" alt="Турнир по настольному теннису">
-        <img src="images/lectures-audience.jpg" alt="Лекции в Пусане">
-        <img src="images/global-team-group.jpg" alt="Global Gathering">
+    </div>
+    <div>
+      <h2 class="t">АКРК Юг · скоро</h2>
+      <div class="soon">
+        <div><div class="soon-t">Исторические лекции и экскурсии</div>
+          <div class="soon-s">21.08–23.08 · Вадим Акуленко</div></div>
+        <div><div class="soon-t">Лекция «Эмоциональное выгорание в миграции»</div>
+          <div class="soon-s">19.09 · Светлана Цай</div></div>
+        <div><div class="soon-t">Шахматный турнир АКРК</div>
+          <div class="soon-s">24.10 · этап в Пусане</div></div>
+        <div class="soon-note">даты предварительные</div>
       </div>
     </div>
+  </div>
+
+  <div class="photos">
+    <img src="images/tournament-group.jpg" alt="Турнир по настольному теннису">
+    <img src="images/lectures-audience.jpg" alt="Лекции в Пусане">
+    <img src="images/global-team-group.jpg" alt="Global Gathering">
+    <img src="images/lectures-group.jpg" alt="Лекции и экскурсии">
+    <img src="images/kimhae-youth.jpg" alt="Молодёжное движение">
+    <img src="images/ansan-meeting.jpg" alt="Встреча в Ансане">
   </div>
 </section>
 
@@ -244,9 +290,9 @@
     <div class="ben"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 11v6M12 7.4v.2"/></svg></div>
       <div class="bt">Навигация</div><div class="bs">право · миграция · медицина</div></div>
     <div class="ben"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 6.5A2.3 2.3 0 015.5 4.2h13A2.3 2.3 0 0120.8 6.5v8a2.3 2.3 0 01-2.3 2.3H9.6L5 20.4v-3.6a2.3 2.3 0 01-1.8-2.3z"/><path d="M8 10.4h8M8 13.2h5"/></svg></div>
-      <div class="bt">Язык</div><div class="bs">KIIP-тренажёр, разговорный клуб</div></div>
+      <div class="bt">Язык</div><div class="bs">KIIP-тренажёр,<br>разговорный клуб</div></div>
     <div class="ben"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l9.2 4.6L12 12.8 2.8 8.2 12 3.6z"/><path d="M6.4 10.4v5.2c0 1.8 2.6 3.2 5.6 3.2s5.6-1.4 5.6-3.2v-5.2"/></svg></div>
-      <div class="bt">Возможности</div><div class="bs">стипендии, волонтёрские часы 1365</div></div>
+      <div class="bt">Возможности</div><div class="bs">волонтёрские часы 1365 (ПМЖ), стипендии</div></div>
     <div class="ben"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 9.6h3.4l7.4-4.4v13.6l-7.4-4.4H3.4a1 1 0 01-1-1v-2.8a1 1 0 011-1z"/><path d="M18 8.6c1.4 1.1 2.2 2.4 2.2 3.9s-.8 2.8-2.2 3.9"/></svg></div>
       <div class="bt">Голос</div><div class="bs">представительство перед государством</div></div>
   </div>
@@ -260,7 +306,7 @@
 </section>
 <div class="wrap"><div class="strat">
   <div class="si"><div class="sn">01</div><div class="st">Историческая справедливость</div>
-    <div class="ss">правовой статус корё-сарам, работа с Парламентом, ЮНЕСКО «Память мира»</div></div>
+    <div class="ss">восстановление права на гражданство, статус корё-сарам, ЮНЕСКО «Память мира»</div></div>
   <div class="si"><div class="sn">02</div><div class="st">Устойчивое развитие</div>
     <div class="ss">правовая навигация, образование, модель «семья — школа — сообщество»</div></div>
   <div class="si"><div class="sn">03</div><div class="st">Вклад в Корею</div>
@@ -269,7 +315,7 @@
 
 <div class="ftr">
   <div class="wrap">
-    <h2>Присоединяйтесь · 함께하세요</h2>
+    <h2>Узнайте больше об Ассоциации на сайте и в соцсетях</h2>
     <div class="handle">
       <div class="hics">
         <a href="https://t.me/akrk_south" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 4.3L2.9 11.5c-.9.35-.9 1.6.02 1.9l4.3 1.4 1.6 5.1c.25.8 1.28.95 1.75.25l2.2-3.3 4.6 3.4c.7.5 1.7.1 1.86-.75l2.9-14c.17-.9-.7-1.6-1.53-1.2z"/><path d="M7.2 14.8l10.5-7.6-7.6 8.5"/></svg></a>
@@ -283,12 +329,11 @@
       <a class="btn btn-p" href="https://forms.gle/eXMsqgfdzoWPykTQ9" target="_blank" rel="noopener">Заполнить форму вступления</a>
       <a class="btn btn-s" href="deck/">Полная презентация</a>
     </div>
-    <div class="fl">
-      <p>Федеральный сайт: <a href="https://koryosaram.org" target="_blank" rel="noopener">koryosaram.org</a>
-         · федеральный канал: <a href="https://t.me/akrk2018" target="_blank" rel="noopener">@akrk2018</a></p>
-      <p style="color:rgba(255,255,255,.5)">Ассоциация корё-сарам в Республике Корея ·
-         대한고려인협회 · основана 12.12.2018 · рег. №195 МИД РК</p>
-    </div>
+    <div class="partners"><b>Спонсоры, партнёры и площадки.</b>
+      <b style="color:var(--orange)">АКРК:</b> 재외동포청 · Министерство юстиции РК · Парламент РК · Нацкомиссия РК по ЮНЕСКО · KOSHA · Kstat ·
+      <b style="color:var(--teal)">АКРК Юг:</b> Busan Global City Foundation · Ассоциация настольного тенниса Пусана · Церковь Суён-ро · ROYAL FOOD · NOALYUT · Space 2 Cafe</div>
+    <div class="fl">Сайт: <a href="https://akrk-south.github.io" target="_blank" rel="noopener">akrk-south.github.io</a>
+      · федеральный канал: <a href="https://t.me/akrk2018" target="_blank" rel="noopener">@akrk2018</a></div>
   </div>
 </div>
 
