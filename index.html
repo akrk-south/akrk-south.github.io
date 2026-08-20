@@ -182,9 +182,8 @@
     text-decoration:none;min-width:0}
   .sb-logo{width:28px;height:28px;border-radius:50%;overflow:hidden;flex:none;display:block}
   .sb-logo img{width:100%;height:100%;object-fit:cover;transform:scale(1.8)}
-  .sb-brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .sb-short{display:none}
-  @media (max-width:460px){.sb-full{display:none}.sb-short{display:inline}}
+  .sb-name{white-space:normal;line-height:1.18;font-size:13px}
+  @media (max-width:520px){.sb-name{font-size:11.5px}}
   .sb-cta{padding:8px 16px;font-size:13px;flex:none;width:auto}
 
   /* ---- полная презентация (встроена из deck/, слайды депersonализированы) ---- */
@@ -249,6 +248,8 @@
     .pres .slide{padding:36px 20px}
     .pres .slide-cols{grid-template-columns:1fr;gap:16px}
     .pres .strat-grid{grid-template-columns:1fr !important}
+    .pres .cases-grid{grid-template-columns:1fr !important}
+    .pres .kr-photos img{height:170px !important}
   }
   @media (max-width:600px){
     .pres .video-wrap iframe{height:180px}
@@ -256,6 +257,24 @@
     .pres .kpi-num{font-size:18px}
     .pres .quarter-grid{grid-template-columns:1fr}
   }
+
+  /* ---- якоря быстрого меню: не прятать заголовок под sticky-баром ---- */
+  #napravleniya,#chlenstvo,#strategy,#pres,#busan,#contacts{scroll-margin-top:var(--barh,60px)}
+
+  /* ---- плавающее меню разделов ---- */
+  .fabmenu{position:fixed;right:18px;bottom:18px;z-index:250}
+  .fab-btn{width:52px;height:52px;border-radius:50%;background:var(--orange);border:none;
+    box-shadow:0 4px 16px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;color:#fff;padding:0}
+  .fab-btn svg{width:22px;height:22px}
+  .fab-panel{position:absolute;right:0;bottom:64px;background:var(--navy);border-radius:12px;
+    box-shadow:0 10px 28px rgba(0,0,0,.35);padding:8px;min-width:230px;
+    display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;
+    transform:translateY(8px);transition:opacity .18s ease,transform .18s ease}
+  .fab-panel.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .fab-panel a{color:#fff;text-decoration:none;font-size:13.5px;font-weight:600;
+    padding:10px 12px;border-radius:8px}
+  .fab-panel a:hover{background:rgba(255,255,255,.12)}
 </style>
 </head>
 <body>
@@ -264,9 +283,9 @@
   <div class="wrap sb-row">
     <a class="sb-brand" href="#">
       <span class="sb-logo"><img src="images/logo.png" alt="Логотип АКРК"></span>
-      <span><span class="sb-full">Ассоциация корё-сарам в РК</span><span class="sb-short">АКРК</span></span>
+      <span class="sb-name">Ассоциация корё-сарам в Республике Корея</span>
     </a>
-    <a class="btn btn-p sb-cta" href="https://forms.gle/eXMsqgfdzoWPykTQ9" target="_blank" rel="noopener">Вступить в АКРК</a>
+    <a class="btn btn-p sb-cta" href="https://forms.gle/eXMsqgfdzoWPykTQ9" target="_blank" rel="noopener">Вступить</a>
   </div>
 </div>
 
@@ -297,7 +316,7 @@
   <div class="nc nc-s"><div class="n">20+</div><div class="l">действительных<br>членов</div><div class="x">50+ обычных членов</div></div>
 </div></div></div>
 
-<section class="wrap">
+<section class="wrap" id="napravleniya">
   <h2 class="o">Направления деятельности<span style="margin-left:auto;font-size:12px;letter-spacing:.3px;text-transform:none;color:var(--ink);font-weight:700">337 мероприятий и проектов за 2025</span></h2>
   <div class="dirwrap">
     <div class="dirs">
@@ -361,7 +380,7 @@
   </div>
 </section>
 
-<section class="wrap">
+<section class="wrap" id="chlenstvo">
   <h2 class="o">Что даёт членство</h2>
   <div class="bens">
     <div class="ben"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 100-6 3 3 0 000 6zM17.5 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM2.5 21c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M17 14.5c2.7.4 4.5 2.3 4.5 5"/></svg></div>
@@ -380,7 +399,7 @@
     с государственными агентствами.</div>
 </section>
 
-<section class="wrap" style="padding-bottom:0">
+<section class="wrap" id="strategy" style="padding-bottom:0">
   <h2 class="t">Стратегия 2026 — три вектора</h2>
 </section>
 <div class="wrap"><div class="strat">
@@ -693,7 +712,7 @@
     <div class="section-label fed">🟦 Республиканский уровень</div>
     <h2>Что даёт членство на практике</h2>
     <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Три случая из 2026 года — что членство дало конкретным людям.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+    <div class="cases-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
 
       <!-- Кейс 1: Образование -->
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;">
@@ -803,7 +822,7 @@
   </div>
 </div>
 
-<div class="slide">
+<div class="slide" id="busan">
   <div class="slide-content" style="text-align:center;">
     <div style="font-size:32px;margin-bottom:10px;">🟧</div>
     <div class="section-label reg">Региональный уровень</div>
@@ -975,19 +994,19 @@
 <div class="slide">
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Региональный уровень · каждую среду</div>
-    <h2>🗣 Разговорный корейский в Хэунде</h2>
+    <h2>🗣 Корейский язык</h2>
     <div class="slide-cols">
       <div class="col-photo">
-        <div style="display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto auto;column-gap:14px;align-items:end;justify-content:start;">
+        <div class="kr-photos" style="display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto auto;column-gap:14px;align-items:end;justify-content:start;">
           <img src="images/kiip_app.png" alt="Приложение KIIP для изучения корейского" loading="lazy" style="height:325px;width:auto;border-radius:8px;display:block;">
-          <img src="images/hauendae_kr.jpg" alt="Постер занятий по корейскому в Хэунде" loading="lazy" style="height:325px;width:auto;border-radius:8px;display:block;">
+          <img src="images/hauendae_kr.jpg" alt="Постер занятий по корейскому в Хэундэ" loading="lazy" style="height:325px;width:auto;border-radius:8px;display:block;">
           <figcaption style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Приложение KIIP —<br><a href="https://t.me/minseo_kiip_bot" target="_blank" rel="noopener" style="color:#1E96C8;text-decoration:underline;white-space:nowrap;">t.me/minseo_kiip_bot</a></figcaption>
-          <figcaption style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Занятия в Хэунде —<br>каждую среду в 10:00</figcaption>
+          <figcaption style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Занятия в Хэундэ —<br>каждую среду в 10:00</figcaption>
         </div>
       </div>
       <div class="col-text">
         <ul>
-          <li>Каждую <strong>среду в 10:00</strong> в Хэунде — занятия по <strong>разговорному корейскому</strong></li>
+          <li>Каждую <strong>среду в 10:00</strong> в Хэундэ — занятия по <strong>разговорному корейскому</strong></li>
           <li>Практика почти <strong>один на один</strong> с преподавателем: живая речь и учебник</li>
           <li>Приложение по программе <strong>KIIP</strong> — для запоминания слов и регулярной практики</li>
         </ul>
@@ -1062,7 +1081,7 @@
 </div>
 </div>
 
-<div class="ftr">
+<div class="ftr" id="contacts">
   <div class="wrap">
     <h2>Узнайте больше об Ассоциации на сайте и в соцсетях</h2>
     <div class="handle">
@@ -1084,5 +1103,53 @@
   </div>
 </div>
 
+<script>
+  // Имя в шапке переносится на 1-3 строки в зависимости от ширины экрана —
+  // высота бара не фиксирована, поэтому подгоняем отступ body под неё.
+  (function(){
+    var bar = document.querySelector('.stickybar');
+    if(!bar) return;
+    function sync(){
+      var h = bar.offsetHeight;
+      document.body.style.paddingTop = h + 'px';
+      document.documentElement.style.setProperty('--barh', (h + 12) + 'px');
+    }
+    sync();
+    window.addEventListener('resize', sync);
+  })();
+</script>
+
+<div class="fabmenu">
+  <button class="fab-btn" id="fabToggle" aria-label="Быстрый переход по разделам" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <nav class="fab-panel" id="fabPanel">
+    <a href="#napravleniya">Направления и цифры</a>
+    <a href="#chlenstvo">Что даёт членство</a>
+    <a href="#strategy">Стратегия 2026</a>
+    <a href="#pres">Полная презентация</a>
+    <a href="#busan">АКРК Пусан</a>
+    <a href="#contacts">Контакты и партнёры</a>
+  </nav>
+</div>
+<script>
+  (function(){
+    var btn = document.getElementById('fabToggle');
+    var panel = document.getElementById('fabPanel');
+    if(!btn || !panel) return;
+    function close(){ panel.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function toggle(e){
+      e.stopPropagation();
+      var open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', toggle);
+    panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+    document.addEventListener('click', function(e){
+      if(!panel.contains(e.target) && e.target !== btn) close();
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  })();
+</script>
 </body>
 </html>
