@@ -53,6 +53,18 @@
   .btn-p{background:var(--orange);color:#fff}
   .btn-s{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
 
+  /* ---- что такое / зачем ---- */
+  .whatwhyband{background:var(--cream);border-bottom:1px solid var(--line)}
+  .whatwhy{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:28px 0}
+  .whatwhy .ww-col+.ww-col{border-left:1px solid var(--line);padding-left:36px}
+  .ww-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+    color:var(--orange);margin-bottom:11px;display:flex;align-items:center;gap:8px}
+  .ww-eyebrow::before{content:"";width:16px;height:2px;background:var(--orange);flex:none}
+  .ww-h{font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:9px}
+  .ww-h .hl{color:var(--orange)}
+  .ww-p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .ww-p b{color:var(--ink)}
+
   /* ---- numbers ---- */
   .numsband{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -152,8 +164,8 @@
   @media(max-width:640px){
     section{padding:30px 0}
     .slogan{font-size:21px}
-    .cycle{flex-wrap:wrap;gap:8px}
-    .cycle-note{margin-left:0;text-align:left;max-width:none}
+    .whatwhy{grid-template-columns:1fr;gap:22px;padding:24px 0}
+    .whatwhy .ww-col+.ww-col{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:22px}
     .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
     .ng-k{grid-column:span 2;border-right:none}
     .ng-s{grid-column:span 2}
@@ -300,19 +312,28 @@
   <div class="wrap">
     <h1 class="slogan">В единстве — сила</h1>
     <div class="slogan-kr">함께하는 힘</div>
-    <div class="lead">
-      <p class="lead-p"><b>АКРК — официальная организация русскоязычных корейцев из стран СНГ,
-        живущих в Корее.</b> Мы представляем интересы сообщества перед государством, помогаем
-        адаптироваться и сохраняем идентичность корё-сарам.</p>
-      <div class="cycle"><em><b>Собираем</b> голоса и проблемы сообщества <i>→</i> <b>объясняем</b> их государству
-        <i>→</i> <b>соединяем</b> общину с институтами</em><span class="cycle-note">в Корее государство
-        говорит с организациями, а не с людьми отдельно</span></div>
-    </div>
     <div class="btns">
       <a class="btn btn-p" href="https://t.me/akrk_south" target="_blank" rel="noopener">Подписаться на канал</a>
     </div>
   </div>
 </div>
+
+<div class="whatwhyband"><div class="wrap whatwhy">
+  <div class="ww-col">
+    <div class="ww-eyebrow">Что такое АКРК</div>
+    <div class="ww-h">АКРК — официальная организация русскоязычных корейцев из стран СНГ,
+      живущих в Корее</div>
+    <div class="ww-p">Представляем интересы сообщества перед государством, помогаем
+      адаптироваться и сохраняем идентичность корё-сарам.</div>
+  </div>
+  <div class="ww-col">
+    <div class="ww-eyebrow">Зачем АКРК</div>
+    <div class="ww-h">В Корее государство говорит <span class="hl">с организациями, а не с людьми
+      отдельно</span></div>
+    <div class="ww-p"><b>Собираем</b> голоса и проблемы сообщества, <b>объясняем</b> их государству
+      и <b>соединяем</b> общину с институтами</div>
+  </div>
+</div></div>
 
 <div class="numsband"><div class="wrap"><div class="nums">
   <div class="ng ng-k">АКРК по всей Корее</div>
