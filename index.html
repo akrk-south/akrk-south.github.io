@@ -35,8 +35,17 @@
   .hero{background:var(--navy);color:#fff;padding:34px 0 30px;position:relative}
   .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
     background:linear-gradient(90deg,var(--orange) 0 55%,var(--teal) 55% 100%)}
+  .hero-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
   .slogan{font-size:25px;font-weight:700;margin-bottom:6px;letter-spacing:-.3px}
-  .slogan-kr{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:18px}
+  .slogan-kr{font-size:13px;color:rgba(255,255,255,.55)}
+  .hero-social{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+  .hs-label{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.3px;text-align:right}
+  .hs-icons{display:flex;gap:8px;color:#fff}
+  .hs-icons a{color:inherit;display:flex;align-items:center;justify-content:center;
+    width:32px;height:32px;border-radius:50%;background:var(--orange);
+    transition:opacity .15s}
+  .hs-icons a:hover{opacity:.85}
+  .hs-icons svg{width:17px;height:17px}
   .lead{max-width:680px;margin-bottom:24px}
   .lead-p{font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.9)}
   .lead-p b{color:#fff}
@@ -150,9 +159,12 @@
   .ftr h2{color:var(--orange)}
   .ftr h2::after{background:rgba(255,255,255,.16)}
   .handle{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}
-  .hics{display:flex;gap:10px;color:var(--orange)}
-  .hics a{color:inherit;display:block}
-  .hics svg{width:26px;height:26px}
+  .hics{display:flex;gap:10px;color:#fff}
+  .hics a{color:inherit;display:flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:50%;background:var(--orange);
+    transition:opacity .15s}
+  .hics a:hover{opacity:.85}
+  .hics svg{width:20px;height:20px}
   .hn{font-size:31px;font-weight:700;letter-spacing:-.8px}
   .hs{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px}
   .partners{font-size:12px;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.16);
@@ -164,6 +176,9 @@
   @media(max-width:640px){
     section{padding:30px 0}
     .slogan{font-size:21px}
+    .hero-row{flex-direction:column;align-items:flex-start;gap:18px}
+    .hero-social{align-items:flex-start}
+    .hs-label{text-align:left}
     .whatwhy{grid-template-columns:1fr;gap:22px;padding:24px 0}
     .whatwhy .ww-col+.ww-col{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:22px}
     .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -309,9 +324,20 @@
 </div>
 
 <div class="hero" id="top">
-  <div class="wrap">
-    <h1 class="slogan">В единстве — сила</h1>
-    <div class="slogan-kr">함께하는 힘</div>
+  <div class="wrap hero-row">
+    <div class="hero-title">
+      <h1 class="slogan">В единстве — сила</h1>
+      <div class="slogan-kr">함께하는 힘</div>
+    </div>
+    <div class="hero-social">
+      <span class="hs-label">Нажмите на иконку — подпишитесь на @akrk_south:</span>
+      <div class="hs-icons">
+        <a href="https://t.me/akrk_south" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 4.3L2.9 11.5c-.9.35-.9 1.6.02 1.9l4.3 1.4 1.6 5.1c.25.8 1.28.95 1.75.25l2.2-3.3 4.6 3.4c.7.5 1.7.1 1.86-.75l2.9-14c.17-.9-.7-1.6-1.53-1.2z"/><path d="M7.2 14.8l10.5-7.6-7.6 8.5"/></svg></a>
+        <a href="https://instagram.com/akrk_south" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.1"/><path d="M17.2 6.9v.1"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61590015654333" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://youtube.com/@akrk_south" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.4" y="5.4" width="19.2" height="13.2" rx="4"/><path d="M10.4 9.6l5 2.4-5 2.4V9.6z"/></svg></a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1106,10 +1132,12 @@
 <div class="ftr" id="contacts">
   <div class="wrap">
     <h2>Узнайте больше об Ассоциации на сайте и в соцсетях</h2>
+    <div class="hs">Нажмите на иконку — подпишитесь:</div>
     <div class="handle">
       <div class="hics">
         <a href="https://t.me/akrk_south" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 4.3L2.9 11.5c-.9.35-.9 1.6.02 1.9l4.3 1.4 1.6 5.1c.25.8 1.28.95 1.75.25l2.2-3.3 4.6 3.4c.7.5 1.7.1 1.86-.75l2.9-14c.17-.9-.7-1.6-1.53-1.2z"/><path d="M7.2 14.8l10.5-7.6-7.6 8.5"/></svg></a>
         <a href="https://instagram.com/akrk_south" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.1"/><path d="M17.2 6.9v.1"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61590015654333" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
         <a href="https://youtube.com/@akrk_south" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.4" y="5.4" width="19.2" height="13.2" rx="4"/><path d="M10.4 9.6l5 2.4-5 2.4V9.6z"/></svg></a>
       </div>
       <div class="hn">@akrk_south</div>
