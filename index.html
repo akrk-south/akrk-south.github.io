@@ -162,15 +162,18 @@
     padding-top:16px;margin-top:22px;line-height:1.7}
   .partners b{color:#fff;font-weight:700}
   .fl{font-size:13px;color:rgba(255,255,255,.5);margin-top:10px}
+  /* тот же блок соцсетей, продублированный перед полной презентацией */
+  .subftr{margin-top:0;padding:32px 0 30px}
+  .subftr .handle{margin-bottom:0}
   .fl a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
 
   @media(max-width:640px){
-    section{padding:30px 0}
+    section,section.wrap{padding:30px 20px}
     .slogan{font-size:21px}
     .hero-row{flex-direction:column;align-items:flex-start;gap:18px}
     .hero-social{align-items:flex-start}
     .hs-label{text-align:left}
-    .whatwhy{grid-template-columns:1fr;gap:22px;padding:24px 0}
+    .whatwhy{grid-template-columns:1fr;gap:22px;padding:24px 20px}
     .whatwhy .ww-col+.ww-col{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:22px}
     .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
     .ng-k{grid-column:span 2;border-right:none}
@@ -468,9 +471,25 @@
     <div class="ss">предпринимательство, деловые и культурные связи со странами СНГ</div></div>
 </div></div>
 
+<div class="ftr subftr" id="follow">
+  <div class="wrap">
+    <h2>Подпишитесь на АКРК Юг</h2>
+    <div class="hs">Нажмите и подпишитесь:</div>
+    <div class="handle">
+      <div class="hics">
+        <a href="https://t.me/akrk_south" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 4.3L2.9 11.5c-.9.35-.9 1.6.02 1.9l4.3 1.4 1.6 5.1c.25.8 1.28.95 1.75.25l2.2-3.3 4.6 3.4c.7.5 1.7.1 1.86-.75l2.9-14c.17-.9-.7-1.6-1.53-1.2z"/><path d="M7.2 14.8l10.5-7.6-7.6 8.5"/></svg></a>
+        <a href="https://instagram.com/akrk_south" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.1"/><path d="M17.2 6.9v.1"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61590015654333" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://youtube.com/@akrk_south" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.4" y="5.4" width="19.2" height="13.2" rx="4"/><path d="M10.4 9.6l5 2.4-5 2.4V9.6z"/></svg></a>
+      </div>
+      <div class="hn">@akrk_south</div>
+    </div>
+  </div>
+</div>
+
 <section class="wrap">
   <h2 class="o">Полная презентация</h2>
-  <p style="font-size:13px;color:var(--muted);margin:-8px 0 0">Подробнее о структуре, стратегии, бюджете и жизни АКРК Юг — из презентации информационной сессии.</p>
+  <p style="font-size:13px;color:var(--muted);margin:0">Подробнее о структуре, стратегии, бюджете и жизни АКРК Юг — из презентации информационной сессии.</p>
 </section>
 
 <div class="pres" id="pres">
@@ -1136,7 +1155,7 @@
 <div class="ftr" id="contacts">
   <div class="wrap">
     <h2>Узнайте больше об Ассоциации на сайте и в соцсетях</h2>
-    <div class="hs">Нажмите на иконку — подпишитесь:</div>
+    <div class="hs">Нажмите и подпишитесь:</div>
     <div class="handle">
       <div class="hics">
         <a href="https://t.me/akrk_south" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 4.3L2.9 11.5c-.9.35-.9 1.6.02 1.9l4.3 1.4 1.6 5.1c.25.8 1.28.95 1.75.25l2.2-3.3 4.6 3.4c.7.5 1.7.1 1.86-.75l2.9-14c.17-.9-.7-1.6-1.53-1.2z"/><path d="M7.2 14.8l10.5-7.6-7.6 8.5"/></svg></a>
@@ -1145,10 +1164,6 @@
         <a href="https://youtube.com/@akrk_south" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.4" y="5.4" width="19.2" height="13.2" rx="4"/><path d="M10.4 9.6l5 2.4-5 2.4V9.6z"/></svg></a>
       </div>
       <div class="hn">@akrk_south</div>
-    </div>
-    <div class="btns">
-      <a class="btn btn-p" href="https://forms.gle/eXMsqgfdzoWPykTQ9" target="_blank" rel="noopener">Заполнить форму вступления</a>
-      <a class="btn btn-s" href="https://t.me/akrk_south" target="_blank" rel="noopener">Подписаться на канал</a>
     </div>
     <div class="partners"><b>Спонсоры, партнёры и площадки.</b>
       <b style="color:var(--orange)">АКРК:</b> 재외동포청 · Министерство юстиции РК · Парламент РК · Нацкомиссия РК по ЮНЕСКО · KOSHA · Kstat ·
