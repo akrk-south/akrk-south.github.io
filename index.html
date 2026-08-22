@@ -25,7 +25,8 @@
     padding-top:47px;
   }
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-  section{padding:38px 0}
+  /* .wrap перебивает голый section по специфичности — поэтому селектор составной */
+  section,section.wrap{padding:38px 20px}
   h2{font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;
      color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:11px}
   h2::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -47,15 +48,6 @@
     transition:opacity .15s}
   .hs-icons a:hover{opacity:.85}
   .hs-icons svg{width:17px;height:17px}
-  .lead{max-width:680px;margin-bottom:24px}
-  .lead-p{font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.9)}
-  .lead-p b{color:#fff}
-  .cycle{display:flex;align-items:baseline;gap:14px;margin-top:14px;padding-top:12px;
-    border-top:1px solid rgba(255,255,255,.18);font-size:13.5px;color:rgba(255,255,255,.85)}
-  .cycle b{color:#fff;font-weight:700}
-  .cycle i{color:var(--orange);font-style:normal;font-weight:700;padding:0 3px}
-  .cycle-note{margin-left:auto;text-align:right;font-size:11px;line-height:1.35;
-    color:rgba(255,255,255,.6);min-width:0;max-width:46%}
   .btns{display:flex;gap:11px;flex-wrap:wrap}
   .btn{display:inline-block;padding:14px 24px;border-radius:8px;font-size:15px;font-weight:700;
     text-decoration:none;transition:opacity .15s}
@@ -65,7 +57,7 @@
 
   /* ---- что такое / зачем ---- */
   .whatwhyband{background:var(--cream);border-bottom:1px solid var(--line)}
-  .whatwhy{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:28px 0}
+  .whatwhy{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:28px 20px}
   .whatwhy .ww-col+.ww-col{border-left:1px solid var(--line);padding-left:36px}
   .ww-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
     color:var(--orange);margin-bottom:11px;display:flex;align-items:center;gap:8px}
@@ -123,15 +115,13 @@
   li.t::before{background:var(--teal)}
   li b{display:block;font-size:15px;font-weight:700;line-height:1.3}
   li span{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.4}
-  .soon{display:flex;flex-direction:column;gap:14px}
-  .soon-t{font-size:15px;font-weight:700;line-height:1.3}
-  .soon-s{font-size:13px;color:var(--muted);margin-top:2px}
-  .soon-note{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:4px;
+  .soon-note{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:10px;
     border-top:1px dashed var(--line);padding-top:8px}
 
   /* ---- photos ---- */
   .photos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-top:20px}
-  .photos img{width:100%;height:76px;object-fit:cover;border-radius:7px;display:block}
+  .photos img{width:100%;height:104px;object-fit:cover;object-position:center 30%;
+    border-radius:7px;display:block}
 
   /* ---- benefits ---- */
   .bens{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
@@ -193,7 +183,7 @@
     .mapwrap{align-self:center}
     .cols{grid-template-columns:1fr;gap:28px}
     .photos{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .photos img{height:64px}
+    .photos img{height:84px}
     .bens{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .strat{grid-template-columns:1fr}
     .si{border-right:none;border-bottom:1px solid var(--line);padding:16px 0}
@@ -247,6 +237,9 @@
   .pres a:hover{text-decoration:underline}
   .pres .video-wrap{margin:10px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
   .pres .video-wrap iframe{width:100%;height:300px;display:block;border:none}
+  /* вертикальные Shorts: 9:16 вместо широкого окна с чёрными полями */
+  .pres .video-wrap.shorts{max-width:290px;margin:0 auto}
+  .pres .video-wrap.shorts iframe{height:auto;aspect-ratio:9/16}
   .pres .kpi-row{display:flex;gap:8px;margin:14px 0;flex-wrap:nowrap}
   .pres .kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
     padding:14px 10px;text-align:center;flex:1}
@@ -259,10 +252,13 @@
   .pres .photo-label{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.65);
     padding:2px 10px;border-radius:4px;font-size:10px;color:#fff}
   .pres .slide-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:start;margin-top:8px}
+  /* фото в ряд — для слайдов, где текста меньше, чем фотографий */
+  .pres .photo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .pres .photo-row .photo-wrap{margin:0;aspect-ratio:4/3}
   .pres .col-photo{display:flex;flex-direction:column;gap:6px}
   .pres .col-photo .photo-wrap{aspect-ratio:4/3;margin:0}
   .pres .col-photo .photo-wrap.portrait{aspect-ratio:3/4}
-  .pres .col-photo:has(.photo-wrap + .photo-wrap) .photo-wrap{max-height:348px}
+  .pres .col-photo:has(.photo-wrap + .photo-wrap) .photo-wrap{max-height:252px}
   .pres .slide-cols:has(.col-text > .photo-wrap:last-child){align-items:stretch}
   .pres .slide-cols:has(.col-text > .photo-wrap:last-child) .col-text{display:flex;flex-direction:column}
   .pres .col-text > .photo-wrap:last-child{margin-top:auto}
@@ -274,20 +270,31 @@
   .pres .member-table tr:last-child td{border:none}
   @media (max-width:700px){
     .pres .slide{padding:36px 20px}
+    .pres .photo-row{grid-template-columns:1fr}
     .pres .slide-cols{grid-template-columns:1fr;gap:16px}
     .pres .strat-grid{grid-template-columns:1fr !important}
     .pres .cases-grid{grid-template-columns:1fr !important}
     .pres .kr-photos img{height:170px !important}
   }
+  /* схема структуры: широкая сетка — прокручиваем внутри, а не режем экраном */
+  .schema-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .schema-scroll > .schema-inner{min-width:560px}
+
+  @media (max-width:700px){
+    .pres .slide#pres-structure{padding:36px 20px}
+  }
   @media (max-width:600px){
     .pres .video-wrap iframe{height:180px}
+    .pres .video-wrap.shorts iframe{height:auto}
+    .pres .member-table{font-size:12px}
+    .pres .member-table th,.pres .member-table td{padding:7px 8px}
     .pres .kpi{padding:10px 6px}
     .pres .kpi-num{font-size:18px}
     .pres .quarter-grid{grid-template-columns:1fr}
   }
 
   /* ---- якоря быстрого меню: не прятать заголовок под sticky-баром ---- */
-  #top,#napravleniya,#events,#chlenstvo,#strategy,#pres,#pres-akrk,#pres-structure,#pres-reps,
+  #top,#napravleniya,#events,#chlenstvo,#strategy,#follow,#pres,#pres-akrk,#pres-structure,#pres-reps,
   #pres-why,#pres-directions,#pres-results,#pres-membership-table,#pres-cases,#pres-opportunities,
   #pres-budget,#pres-strategy,#busan,#ansan,#kimhae,#tennis,#lectures,#global-gathering,#korean,
   #together,#plans-h2,#donor,#contacts{scroll-margin-top:var(--barh,60px)}
@@ -527,10 +534,12 @@
   </div>
 </div>
 
-<div class="slide" id="pres-structure" style="padding:32px 48px;">
+<div class="slide" id="pres-structure" style="padding-left:48px;padding-right:48px;">
   <div class="slide-content" style="max-width:900px;padding:0;background:transparent;">
     <div class="section-label fed" style="color:#2C3A95;">🟦 Республиканский уровень</div>
     <h2 style="color:#1a1a2e;margin-bottom:16px;">Структура АКРК</h2>
+    <div class="schema-scroll">
+      <div class="schema-inner">
 
     <!-- ROW 1: Общее год. собрание — Совет правления — Аудитор -->
     <div style="display:flex;align-items:stretch;">
@@ -591,6 +600,8 @@
       <div style="width:24px;"></div>
       <div style="flex:1;"></div>
     </div>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -633,15 +644,15 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#db6e70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:100%;background:#db6e70;opacity:.62;"></div>
-          <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Защита прав</strong> — формирование положительного имиджа коре-сарам</span>
+          <div style="position:absolute;inset:0 auto 0 0;width:100%;background:#db6e70;opacity:.32;"></div>
+          <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Защита прав</strong> — формирование положительного имиджа корё-сарам</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">64</span>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#e3914e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:28.1%;background:#e3914e;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:28.1%;background:#e3914e;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Законы и политика</strong> — предложения в законы и участие в её формировании</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">18</span>
         </div>
@@ -649,7 +660,7 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#cabf6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:45.3%;background:#cabf6c;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:45.3%;background:#cabf6c;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Консультации</strong> — по социальным, медицинским и административным вопросам</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">29</span>
         </div>
@@ -657,7 +668,7 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#a6cd7c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:82.8%;background:#a6cd7c;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:82.8%;background:#a6cd7c;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Личностный рост</strong> — поддержка в развитии потенциала</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">53</span>
         </div>
@@ -665,7 +676,7 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6cbc7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:64.1%;background:#6cbc7f;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:64.1%;background:#6cbc7f;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Молодёжь</strong> — формирование активного молодого поколения корё-сарам</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">41</span>
         </div>
@@ -673,15 +684,15 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#79b7e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:92.2%;background:#79b7e3;opacity:.62;"></div>
-          <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Консолидация</strong> — активное взаимодействие коре-сарам</span>
+          <div style="position:absolute;inset:0 auto 0 0;width:92.2%;background:#79b7e3;opacity:.32;"></div>
+          <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Консолидация</strong> — активное взаимодействие корё-сарам</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">59</span>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#626fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:20.3%;background:#626fa8;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:20.3%;background:#626fa8;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Международное</strong> — развитие сотрудничества и региональной деятельности</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">13</span>
         </div>
@@ -689,7 +700,7 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#7a4f8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:68.8%;background:#7a4f8b;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:68.8%;background:#7a4f8b;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Партнёрства</strong> — сотрудничество с местными организациями</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">44</span>
         </div>
@@ -697,7 +708,7 @@
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#c577a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg></span>
         <div style="position:relative;flex:1;display:flex;align-items:center;min-height:42px;border-radius:8px;overflow:hidden;background:#f1f4fb;border:1px solid var(--border);">
-          <div style="position:absolute;inset:0 auto 0 0;width:25%;background:#c577a3;opacity:.62;"></div>
+          <div style="position:absolute;inset:0 auto 0 0;width:25%;background:#c577a3;opacity:.32;"></div>
           <span style="position:relative;flex:1;font-size:13px;line-height:1.25;color:#1a1a2e;padding:0 52px 0 14px;"><strong>Прочее</strong> — деятельность по реализации миссии</span>
           <span style="position:absolute;right:14px;font-size:17px;font-weight:700;color:#1a1a2e;">16</span>
         </div>
@@ -808,13 +819,13 @@
     <h2>Членство: возможности и проекты</h2>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
       <div style="flex:1;min-width:200px;">
-        <div class="video-wrap">
+        <div class="video-wrap shorts">
           <iframe src="https://www.youtube.com/embed/yYr2mpMD9n0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <p style="font-size:11px;text-align:center;margin:2px 0 0;">Shorts: «А что мне даст вступление в АКРК?» — о нетворкинге</p>
       </div>
       <div style="flex:1;min-width:200px;">
-        <div class="video-wrap">
+        <div class="video-wrap shorts">
           <iframe src="https://www.youtube.com/embed/0gjtNFgQF9Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <p style="font-size:11px;text-align:center;margin:2px 0 0;">Shorts: «Почему я вступила в АКРК» — личная история</p>
@@ -870,8 +881,7 @@
 
 <div class="slide" id="busan">
   <div class="slide-content" style="text-align:center;">
-    <div style="font-size:32px;margin-bottom:10px;">🟧</div>
-    <div class="section-label reg">Региональный уровень</div>
+    <div class="section-label reg">🟧 Региональный уровень</div>
     <h2>АКРК Пусан</h2>
     <p style="max-width:520px;margin:0 auto 4px;">Региональное представительство АКРК в Пусане и южном регионе.</p>
     <p style="max-width:520px;margin:0 auto 16px;font-size:14px;">Представитель в Совете директоров — <strong>Хан Владимир</strong>.</p>
@@ -897,7 +907,7 @@
     <h2>🏛 Ежегодное собрание АКРК в Ансане</h2>
     <div class="slide-cols">
       <div class="col-photo">
-        <div class="photo-wrap">
+        <div class="photo-wrap" style="max-height:300px">
           <img src="images/ansan-meeting.jpg" alt="Ежегодное собрание АКРК, Ансан, 21.02.2026" loading="lazy">
           <span class="photo-label">🏛 21.02.2026 · Ансан</span>
         </div>
@@ -918,23 +928,19 @@
   <div class="slide-content wide">
     <div class="section-label reg">🟧 Событие · Март 2026</div>
     <h2>🚀 Молодёжное движение: встреча в Кимхэ</h2>
-    <div class="slide-cols">
-      <div class="col-photo" style="gap:4px;">
-        <div class="photo-wrap" style="aspect-ratio:4/3;">
-          <img src="images/kimhae-youth.jpg" alt="Встреча с молодёжным движением в Кимхэ" style="width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;" loading="lazy">
-          <span class="photo-label">🚀 Кимхэ</span>
-        </div>
-        <div class="photo-wrap" style="aspect-ratio:4/3;margin-top:0;">
-          <img src="images/kimhae-photo2.jpg" alt="Встреча с молодёжным движением в Кимхэ" loading="lazy">
-          <span class="photo-label">🚀 Кимхэ</span>
-        </div>
+    <ul>
+      <li>Встреча с молодёжным движением корё-сарам в Кимхэ</li>
+      <li>Обсуждение совместных проектов и форматов сотрудничества</li>
+      <li>Новое направление для развития молодёжного сообщества на юге Кореи</li>
+    </ul>
+    <div class="photo-row">
+      <div class="photo-wrap">
+        <img src="images/kimhae-youth.jpg" alt="Встреча с молодёжным движением в Кимхэ" style="object-position:50% 75%;" loading="lazy">
+        <span class="photo-label">🚀 Кимхэ</span>
       </div>
-      <div class="col-text">
-        <ul>
-          <li>Встреча с молодёжным движением корё-сарам в Кимхэ</li>
-          <li>Обсуждение совместных проектов и форматов сотрудничества</li>
-          <li>Новое направление для развития молодёжного сообщества на юге Кореи</li>
-        </ul>
+      <div class="photo-wrap">
+        <img src="images/kimhae-photo2.jpg" alt="Встреча с молодёжным движением в Кимхэ" loading="lazy">
+        <span class="photo-label">🚀 Кимхэ</span>
       </div>
     </div>
   </div>
@@ -1046,8 +1052,8 @@
         <div class="kr-photos" style="display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto auto;column-gap:14px;align-items:end;justify-content:start;">
           <img src="images/kiip_app.png" alt="Приложение KIIP для изучения корейского" loading="lazy" style="height:325px;width:auto;border-radius:8px;display:block;">
           <img src="images/hauendae_kr.jpg" alt="Постер занятий по корейскому в Хэундэ" loading="lazy" style="height:325px;width:auto;border-radius:8px;display:block;">
-          <figcaption style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Приложение KIIP —<br><a href="https://t.me/minseo_kiip_bot" target="_blank" rel="noopener" style="color:#1E96C8;text-decoration:underline;white-space:nowrap;">t.me/minseo_kiip_bot</a></figcaption>
-          <figcaption style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Занятия в Хэундэ —<br>каждую среду в 10:00</figcaption>
+          <div style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Приложение KIIP —<br><a href="https://t.me/minseo_kiip_bot" target="_blank" rel="noopener" style="color:#1E96C8;text-decoration:underline;white-space:nowrap;">t.me/minseo_kiip_bot</a></div>
+          <div style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:6px;line-height:1.3;">Занятия в Хэундэ —<br>каждую среду в 10:00</div>
         </div>
       </div>
       <div class="col-text">
