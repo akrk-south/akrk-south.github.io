@@ -36,12 +36,15 @@ body>div{width:100%;height:100%}
 }
 @media print{.slide{width:100vw;height:100vh}.slide-footer a{display:none}}
 
-/* Keep the wide-screen composition together rather than spreading it to the edges. */
+/* Balance the desktop composition against the actual viewport. */
 @media (min-width:900px) and (orientation:landscape){
- .slide-header,.slide-main,.slide-footer{width:100%;max-width:1000px;margin-left:auto;margin-right:auto}
- .slide-main{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,4cqw,56px)}
- .slide h1{font-size:clamp(30px,min(4.2cqw,7.6cqh),64px)}
- .slide .description{font-size:clamp(18px,min(2.6cqw,4.3cqh),30px)}
- .qr-card{width:min(29cqw,40cqh,340px);max-width:100%}
+ .slide{padding:clamp(24px,4vmin,56px)}
+ .slide-header,.slide-main,.slide-footer{width:100%;max-width:none;margin-left:0;margin-right:0}
+ .slide-main{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,3cqw,64px)}
+ .slide h1{font-size:clamp(30px,min(4.8cqw,8.6cqh),76px)}
+ .slide .description{font-size:clamp(18px,min(2.8cqw,4.7cqh),38px)}
+ .slide .topics{font-size:clamp(12px,min(1.8cqw,3cqh),24px)}
+ .qr-card{width:min(33cqw,48cqh);max-width:100%}
+ .qr-column strong{font-size:clamp(15px,min(2.5cqw,4cqh),32px)}
 }
 </style></head><body><div><main class="slide"><header class="slide-header"><div class="brand-link"><span class="brand-mark"><img src="images/logo.png" alt="Логотип АКРК" width="105" height="105"></span><span>Ассоциация корё-сарам<br>в Республике Корея<span class="brand-korean" lang="ko">대한고려인협회</span></span></div><span class="region">ЮЖНЫЙ РЕГИОН</span></header><div class="slide-main"><section><h1>В единстве сила</h1><p class="description">Объединяем корё-сарам,<br>сохраняем культуру<br>и делаем полезное вместе.</p><p class="topics">Лекции и экскурсии · Спорт и встречи<br>Волонтёрство · Взаимопомощь</p></section><section class="qr-column" aria-label="QR-код сайта АКРК Юг"><div class="qr-card"><img src="images/qr-site.png" alt="QR-код: https://akrk-south.github.io/" width="528" height="528"></div><strong>Узнайте о нас<br>и оставайтесь на связи</strong><small>Соцсети · Участие · Членство</small><small>akrk-south.github.io</small></section></div><footer class="slide-footer"><span>@akrk_south</span><a href="index.html">Открыть страницу после QR →</a></footer></main></div></body></html>
