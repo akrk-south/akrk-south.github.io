@@ -11,6 +11,6 @@
 .social-link:nth-child(2):hover{background:#77215f}
 .social-link:nth-child(3):hover{background:#104792}
 .social-link:nth-child(4):hover{background:#941313}
-.more{margin:8px 0 18px;padding:20px 22px;background:var(--navy);color:#fff;border:0;border-radius:12px;min-height:72px}
-.more small{color:#e0e7ef}
-.more:hover{background:#152c4b}
+.more{margin:8px 0 18px;padding:20px 0;background:transparent;color:var(--navy);border:0;border-top:1px solid var(--line);border-radius:0;min-height:72px}
+.more small{color:var(--muted)}
+.more:hover{background:transparent}
